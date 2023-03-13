@@ -1,10 +1,7 @@
-﻿using System.Collections;
-
-namespace Adventure {
+﻿namespace Adventure {
     internal class Meer {
         String name;
-        ArrayList inseln = new ArrayList();
-        ArrayList schiffe = new ArrayList();
+        List<Insel> inseln = new List<Insel>();
         public void SetName(String s) {
             name = s;
         }
@@ -25,8 +22,8 @@ namespace Adventure {
         public Insel SearchInsel(String s) {
             Insel rückgabe = null;
             for (int i = 0; i < inseln.Count; i++) {
-                if (((Insel)inseln[i]).GetName() == s) {
-                    rückgabe = ((Insel)inseln[i]);
+                if (inseln[i].GetName() == s) {
+                    rückgabe = inseln[i];
                     break;
                 }
             }

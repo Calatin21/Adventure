@@ -10,7 +10,7 @@ namespace Adventure {
         public void ChangeInsel(Insel i, Pirat p) {
             bool streitigkeit;
             Random r = new Random();
-            int rInt = r.Next(0, 1);
+            int rInt = r.Next(0, 2);
             streitigkeit = Convert.ToBoolean(rInt);
             this.RemovePirat(p);
             p.SetInsel(i);
@@ -18,6 +18,9 @@ namespace Adventure {
             if (streitigkeit) {
                 Console.WriteLine($"Auf dem Schiff gab es einen Streit unter den Piraten. Du bist über Bord gegangen.\nDen rest des weges zur Insel {i.GetName()} musst Du schwimmen.");
                 Console.Read();
+            } else
+            {
+                Console.WriteLine("Die Überfahrt verläuft ruhig.");
             }
         }
     }

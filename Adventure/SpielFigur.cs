@@ -1,8 +1,6 @@
-﻿using System.Collections;
-
-namespace Adventure {
+﻿namespace Adventure {
     internal class Spielfigur : Pirat {
-        ArrayList tasche = new ArrayList();
+        List<Gegenstand> tasche = new List<Gegenstand>();
         bool lebt = true;
 
         public void TakeGegenstand(Gegenstand g, Ort o) {
@@ -25,6 +23,15 @@ namespace Adventure {
         }
         public bool GetLebt() {
             return lebt;
+        }
+        public bool IsTascheLeer()
+        {
+            bool ergebnis = false;
+            if (tasche.Count > 0)
+            {
+                ergebnis = true;
+            }
+            return ergebnis;
         }
     }
 }
