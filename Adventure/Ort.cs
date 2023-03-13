@@ -3,8 +3,8 @@
 namespace Adventure {
     internal class Ort {
         String name;
-        ArrayList piraten = new ArrayList();
-        ArrayList gegenstaende = new ArrayList();
+        List<Pirat> piraten = new List<Pirat>();
+        List<Gegenstand> gegenstaende = new List<Gegenstand>();
         public void SetName(String s) {
             name = s;
         }
@@ -36,12 +36,19 @@ namespace Adventure {
         public Gegenstand SearchGegenstand(String s) {
             Gegenstand rückgabe = null;
             for (int i = 0; i < gegenstaende.Count; i++) {
-                if (((Gegenstand)gegenstaende[i]).GetName() == s) {
-                    rückgabe = ((Gegenstand)gegenstaende[i]);
+                if (gegenstaende[i].GetName() == s) {
+                    rückgabe = gegenstaende[i];
                     break;
                 }
             }
             return rückgabe;
+        }
+        public bool IsThereGegenstand() {
+            bool ergebnis = false;
+            if (gegenstaende.Count() > 0) {
+                ergebnis = true;
+            }
+            return ergebnis;
         }
     }
 }

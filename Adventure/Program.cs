@@ -50,12 +50,17 @@ namespace Adventure {
                         player.GetOrt().PrintPiraten();
                         break;
                         case "2":
-                           // if (player.GetOrt(). == null)
-                        player.GetOrt().PrintGegenstaende();
-                        Console.WriteLine("Welchen Gegenstand willst Du nehmen?");
-                        antwort = Console.ReadLine();
-                        Gegenstand x = player.GetOrt().SearchGegenstand(antwort);
-                        player.TakeGegenstand(x, player.GetOrt());
+                        if (player.GetOrt().IsThereGegenstand()) {
+                            player.GetOrt().PrintGegenstaende();
+                            Console.WriteLine("Welchen Gegenstand willst Du nehmen?");
+                            antwort = Console.ReadLine();
+                            Gegenstand x = player.GetOrt().SearchGegenstand(antwort);
+                            player.TakeGegenstand(x, player.GetOrt());
+                        }
+                        else {
+                            Console.WriteLine("Hier gibt es keine Gegenstände mehr.");
+                        }
+                        Console.Read();
                         break;
                         case "3":
                         if (player.GetOrt().GetName() == "Strand") {
@@ -72,6 +77,7 @@ namespace Adventure {
                         break;
                         case "5":
                         ((Kneipe)player.GetOrt()).Feiern(player);
+                        Console.Read();
                         break;
                         default:
                         Console.WriteLine($"Sorry, die Eingabe: {antwort} war falsch");
@@ -89,11 +95,16 @@ namespace Adventure {
                         player.GetOrt().PrintPiraten();
                         break;
                         case "2":
-                        player.GetOrt().PrintGegenstaende();
-                        Console.WriteLine("Welchen Gegenstand willst Du nehmen?");
-                        antwort = Console.ReadLine();
-                        Gegenstand x = player.GetOrt().SearchGegenstand(antwort);
-                        player.TakeGegenstand(x, player.GetOrt());
+                        if (player.GetOrt().IsThereGegenstand()) {
+                            player.GetOrt().PrintGegenstaende();
+                            Console.WriteLine("Welchen Gegenstand willst Du nehmen?");
+                            antwort = Console.ReadLine();
+                            Gegenstand x = player.GetOrt().SearchGegenstand(antwort);
+                            player.TakeGegenstand(x, player.GetOrt());
+                        } else {
+                            Console.WriteLine("Hier gibt es keine Gegenstände mehr.");
+                        }
+                        Console.Read();
                         break;
                         case "3":
                         if (player.GetOrt().GetName() == "Strand") {
@@ -114,6 +125,7 @@ namespace Adventure {
                         antwort= Console.ReadLine();
                         Insel y = karibik.SearchInsel(antwort);
                         ((Strand)player.GetOrt()).ChangeInsel(y, player);
+                        Console.Read();
                         break;
                         default:
                         Console.WriteLine($"Sorry, die Eingabe: {antwort} war falsch");

@@ -2,7 +2,7 @@
 
 namespace Adventure {
     internal class Spielfigur : Pirat {
-        ArrayList tasche = new ArrayList();
+        List<Gegenstand> tasche = new List<Gegenstand>();
         bool lebt = true;
 
         public void TakeGegenstand(Gegenstand g, Ort o) {
