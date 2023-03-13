@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-
+       
         static void Main(string[] args)
         {
             //Initialisierung Welt
@@ -56,7 +56,10 @@
             {
                 string antwort;
                 Console.Clear();
-                Console.WriteLine($"Sie befinden sich an dem Ort {player.GetOrt().GetName()} auf der Insel {player.GetInsel().GetName()}.");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine($"Sie befinden sich an dem Ort: {player.GetOrt().GetName()} auf der Insel: {player.GetInsel().GetName()}.");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine();
                 Console.WriteLine("Was möchten Sie tun?:\n1) Print Piraten vor Ort\n2) Gegenstände nehmen\n3) Ort wechseln\n4)Gegenstände in Deiner Tasche auflisten");
                 if (player.GetOrt().GetName() == "Kneipe")
                 {
@@ -96,8 +99,10 @@
                             Console.Read();
                             break;
                         case "4":
-                            if (player.IsTascheLeer()) {
-                                player.PrintGegenstand(); }
+                            if (player.IsTascheLeer())
+                            {
+                                player.PrintGegenstand();
+                            }
                             else
                             {
                                 Console.WriteLine("Du hast keinen Gegenstand.");
