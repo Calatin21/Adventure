@@ -30,7 +30,7 @@
             }
             return rückgabe;
         }
-        public void AddSchiff(Schiff s) {
+        public void SetSchiff(Schiff s) {
             schiff = s;
         }
         public Schiff GetSchiff() {

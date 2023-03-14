@@ -15,9 +15,10 @@
             monkeyIsland.GetStrand().SetName("Strand");
             monkeyIsland.GetKneipe().SetName("Kneipe");
             karibik.AddInsel(monkeyIsland);
-            karibik.AddSchiff(new Schiff());
-            karibik.GetSchiff().SetName("Black Pearl");
-            melee.GetStrand().AddSchiff(karibik.GetSchiff());
+            Schiff pearl = new Schiff();
+            pearl.SetName("Black Pearl");
+            melee.GetStrand().SetSchiff(pearl);
+
 
             //Deklaration & Initialisierung von Gegenständen
             Gegenstand holzbein = new Gegenstand();
@@ -42,7 +43,7 @@
             barPirat_1.SetOrt(melee.GetKneipe());
             Pirat beachPirat_1 = new Pirat();
             beachPirat_1.SetName("Käptn Iglo");
-            beachPirat_1.SetOrt(melee.GetStrand());
+            pearl.AddPirat(beachPirat_1);
             Pirat barPirat_2 = new Pirat();
             barPirat_2.SetName("Blaubart");
             barPirat_2.SetOrt(monkeyIsland.GetKneipe());

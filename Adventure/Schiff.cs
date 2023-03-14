@@ -24,8 +24,8 @@
             streitigkeit = Convert.ToBoolean(rInt);
             this.RemovePirat(p);
             p.GetOrt().RemovePirat(p);
-            ((Strand)p.GetOrt()).RemoveSchiff(this);
-            i.GetStrand().AddSchiff(this);
+            ((Strand)p.GetOrt()).SetSchiff(null);
+            i.GetStrand().SetSchiff(this);
             p.SetInsel(i);
             p.SetOrt(i.GetStrand());
             Console.WriteLine();
