@@ -10,7 +10,7 @@ namespace Adventure {
     internal class Kneipe: Ort {
         public void Feiern(Pirat p) {
             Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine($"{p.GetName()} gibt sich ein Grog nach dem anderen und wacht am nächsten Morgen mit brummenden Schädel auf.");
+            Console.WriteLine($"{p.GetName()} bestellt einen Grog, ext ihn, hustet, kriegt kaum Luft und ist sofort betrunken.");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 

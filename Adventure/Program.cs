@@ -2,7 +2,7 @@
     internal class Program {
 
         static void Main(string[] args) {
-            //Initialisierung Welt
+            //Deklaration & Initialisierung Welt
             Meer karibik = new Meer();
             karibik.SetName("Karibik");
             Insel melee = new Insel();
@@ -19,6 +19,7 @@
             karibik.GetSchiff().SetName("Black Pearl");
             melee.GetStrand().AddSchiff(karibik.GetSchiff());
 
+            //Deklaration & Initialisierung von Gegenständen
             Gegenstand holzbein = new Gegenstand();
             holzbein.SetName("Holzbein");
             melee.GetStrand().Addgegestand(holzbein);
@@ -35,7 +36,7 @@
             hut.SetName("schwarzer Piratenhut");
             monkeyIsland.GetStrand().Addgegestand(hut);
 
-            //Initialisierung NPCs
+            //Deklaration & Initialisierung NPCs
             Pirat barPirat_1 = new Pirat();
             barPirat_1.SetName("Holzauge");
             barPirat_1.SetOrt(melee.GetKneipe());
@@ -49,12 +50,13 @@
             beachPirat_2.SetName("Freitag");
             beachPirat_2.SetOrt(monkeyIsland.GetStrand());
 
-            //Initialisierung Spielerfigur
+            //Deklaration & Initialisierung Spielerfigur
             Spielfigur player = new Spielfigur();
             player.SetName("Guybrush Threepwood");
             player.SetOrt(melee.GetStrand());
             player.SetInsel(melee);
 
+            //while loop gibt immer wieder das Menu zur auswahl der aktionen des Spielers zur auswahl
             while (player.GetLebt()) {
                 string antwort;
                 ConsoleKeyInfo ant;
