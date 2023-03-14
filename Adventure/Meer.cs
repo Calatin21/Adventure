@@ -2,6 +2,7 @@
     internal class Meer {
         String name;
         List<Insel> inseln = new List<Insel>();
+        Schiff schiff;
         public void SetName(String s) {
             name = s;
         }
@@ -28,6 +29,12 @@
                 }
             }
             return rückgabe;
+        }
+        public void AddSchiff(Schiff s) {
+            schiff = s;
+        }
+        public Schiff GetSchiff() {
+            return schiff;
         }
     }
 }
