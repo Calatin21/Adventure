@@ -68,128 +68,158 @@
                 if (player.GetOrt().GetName() == "Kneipe") {
                     Console.WriteLine("5)Feiern");
                     ant = Console.ReadKey();
-                    x = int.Parse(ant.KeyChar.ToString());
-                    switch (x) {
-                        case 1:
-                        Console.WriteLine();
-                        player.GetOrt().PrintPiraten();
-                        Console.Read();
-                        break;
-                        case 2:
-                        Console.WriteLine();
-                        if (player.GetOrt().IsThereGegenstand()) {
-                            player.GetOrt().PrintGegenstaende();
-                            Console.WriteLine("Welchen Gegenstand willst Du nehmen?");
-                            ant = Console.ReadKey();
-                            x = int.Parse(ant.KeyChar.ToString());
-                            Gegenstand g = player.GetOrt().GetGegenstand(x);
-                            player.TakeGegenstand(g, player.GetOrt());
+                    if (Char.IsDigit(ant.KeyChar)) {
+                        x = int.Parse(ant.KeyChar.ToString());
+                        switch (x) {
+                            case 1:
+                            Console.WriteLine();
+                            player.GetOrt().PrintPiraten();
+                            Console.Read();
+                            break;
+                            case 2:
+                            Console.WriteLine();
+                            if (player.GetOrt().IsThereGegenstand()) {
+                                player.GetOrt().PrintGegenstaende();
+                                Console.WriteLine("Welchen Gegenstand willst Du nehmen?");
+                                ant = Console.ReadKey();
+                                if (Char.IsDigit(ant.KeyChar)) {
+                                    x = int.Parse(ant.KeyChar.ToString());
+                                    Gegenstand g = player.GetOrt().GetGegenstand(x);
+                                    player.TakeGegenstand(g, player.GetOrt());
+                                }
+                                else {
+                                    Console.WriteLine("Hier gibt es keinen Gegenstand.");
+                                }
+                                Console.Read();
+                            }
+                            else {
+                                Console.WriteLine("Bitte eine Zahl eingeben.");
+                                Console.Read();
+                            }
+                            break;
+                            case 3:
+                            Console.WriteLine();
+                            if (player.GetOrt().GetName() == "Strand") {
+                                player.ChangeOrt(player.GetInsel().GetKneipe());
+                            }
+                            else {
+                                player.ChangeOrt(player.GetInsel().GetStrand());
+                            }
+                            Console.WriteLine("Ort wird gewechselt.");
+                            Console.Read();
+                            break;
+                            case 4:
+                            Console.WriteLine();
+                            if (player.IsTascheLeer()) {
+                                player.PrintGegenstand();
+                            }
+                            else {
+                                Console.WriteLine("Du hast keinen Gegenstand.");
+                            }
+                            Console.Read();
+                            break;
+                            case 5:
+                            Console.WriteLine();
+                            ((Kneipe)player.GetOrt()).Feiern(player);
+                            Console.Read();
+                            break;
+                            default:
+                            Console.WriteLine();
+                            Console.WriteLine($"Sorry, die Eingabe: {ant} war falsch");
+                            Console.Read();
+                            break;
                         }
-                        else {
-                            Console.WriteLine("Hier gibt es keinen Gegenstand.");
-                        }
                         Console.Read();
-                        break;
-                        case 3:
-                        Console.WriteLine();
-                        if (player.GetOrt().GetName() == "Strand") {
-                            player.ChangeOrt(player.GetInsel().GetKneipe());
-                        }
-                        else {
-                            player.ChangeOrt(player.GetInsel().GetStrand());
-                        }
-                        Console.WriteLine("Ort wird gewechselt.");
-                        Console.Read();
-                        break;
-                        case 4:
-                        Console.WriteLine();
-                        if (player.IsTascheLeer()) {
-                            player.PrintGegenstand();
-                        }
-                        else {
-                            Console.WriteLine("Du hast keinen Gegenstand.");
-                        }
-                        Console.Read();
-                        break;
-                        case 5:
-                        Console.WriteLine();
-                        ((Kneipe)player.GetOrt()).Feiern(player);
-                        Console.Read();
-                        break;
-                        default:
-                        Console.WriteLine();
-                        Console.WriteLine($"Sorry, die Eingabe: {ant} war falsch");
-                        Console.Read();
-                        break;
                     }
-                    Console.Read();
+                    else {
+                        Console.WriteLine("Bitte eine Zahl eingeben.");
+                        Console.Read();
+                    }
                 }
                 else {
                     Console.WriteLine("5)Schiff benutzen");
 
                     ant = Console.ReadKey();
-                    x = int.Parse(ant.KeyChar.ToString());
-                    switch (x) {
-                        case 1:
-                        Console.WriteLine();
-                        player.GetOrt().PrintPiraten();
-                        Console.Read();
-                        break;
-                        case 2:
-                        Console.WriteLine();
-                        if (player.GetOrt().IsThereGegenstand()) {
-                            player.GetOrt().PrintGegenstaende();
-                            Console.WriteLine("Welchen Gegenstand willst Du nehmen?");
-                            ant = Console.ReadKey();
-                            x = int.Parse(ant.KeyChar.ToString());
-                            Gegenstand g = player.GetOrt().GetGegenstand(x);
-                            player.TakeGegenstand(g, player.GetOrt());
-                        }
-                        else {
-                            Console.WriteLine("Hier gibt es keinen Gegenstand.");
-                        }
-                        Console.Read();
-                        break;
-                        case 3:
-                        Console.WriteLine();
-                        if (player.GetOrt().GetName() == "Strand") {
-                            player.ChangeOrt(player.GetInsel().GetKneipe());
-                        }
-                        else {
-                            player.ChangeOrt(player.GetInsel().GetStrand());
-                        }
-                        Console.WriteLine("Ort wird gewechselt.");
-                        Console.Read();
-                        break;
-                        case 4:
-                        Console.WriteLine();
-                        if (player.IsTascheLeer()) {
-                            player.PrintGegenstand();
-                        }
-                        else {
-                            Console.WriteLine("Du hast keinen Gegenstand.");
-                        }
-                        Console.Read();
-                        break;
-                        case 5:
-                        Console.WriteLine();
-                        Console.WriteLine();
-                        karibik.PrintInsel();
-                        Console.WriteLine("Auf welche Insel willst Du reisen?");
-                        ant = Console.ReadKey();
+                    if (Char.IsDigit(ant.KeyChar)) {
                         x = int.Parse(ant.KeyChar.ToString());
-                        Insel y = karibik.GetInsel(x);
-                        ((Strand)player.GetOrt()).GetSchiff().AddPirat(player);
-                        karibik.GetSchiff().SchiffFahrt(y, player);
+                        switch (x) {
+                            case 1:
+                            Console.WriteLine();
+                            player.GetOrt().PrintPiraten();
+                            Console.Read();
+                            break;
+                            case 2:
+                            Console.WriteLine();
+                            if (player.GetOrt().IsThereGegenstand()) {
+                                player.GetOrt().PrintGegenstaende();
+                                Console.WriteLine("Welchen Gegenstand willst Du nehmen?");
+                                ant = Console.ReadKey();
+                                if (Char.IsDigit(ant.KeyChar)) {
+                                    x = int.Parse(ant.KeyChar.ToString());
+                                    Gegenstand g = player.GetOrt().GetGegenstand(x);
+                                    player.TakeGegenstand(g, player.GetOrt());
+                                }
+                                else {
+                                    Console.WriteLine("Hier gibt es keinen Gegenstand.");
+                                }
+                                Console.Read();
+                            }
+                            else {
+                                Console.WriteLine("Bitte eine Zahl eingeben.");
+                                Console.Read();
+                            }
+                            break;
+                            case 3:
+                            Console.WriteLine();
+                            if (player.GetOrt().GetName() == "Strand") {
+                                player.ChangeOrt(player.GetInsel().GetKneipe());
+                            }
+                            else {
+                                player.ChangeOrt(player.GetInsel().GetStrand());
+                            }
+                            Console.WriteLine("Ort wird gewechselt.");
+                            Console.Read();
+                            break;
+                            case 4:
+                            Console.WriteLine();
+                            if (player.IsTascheLeer()) {
+                                player.PrintGegenstand();
+                            }
+                            else {
+                                Console.WriteLine("Du hast keinen Gegenstand.");
+                            }
+                            Console.Read();
+                            break;
+                            case 5:
+                            Console.WriteLine();
+                            Console.WriteLine();
+                            karibik.PrintInsel();
+                            Console.WriteLine("Auf welche Insel willst Du reisen?");
+                            ant = Console.ReadKey();
+                            if (Char.IsDigit(ant.KeyChar)) {
+                                x = int.Parse(ant.KeyChar.ToString());
+                                Insel y = karibik.GetInsel(x);
+                                ((Strand)player.GetOrt()).GetSchiff().AddPirat(player);
+                                karibik.GetSchiff().SchiffFahrt(y, player);
+                                Console.Read();
+                            }
+                            else {
+                                Console.WriteLine("Bitte eine Zahl eingeben.");
+                                Console.Read();
+                            }
+                            break;
+                            default:
+                            Console.WriteLine();
+                            Console.WriteLine($"Sorry, die Eingabe: {ant} war falsch");
+                            Console.Read();
+                            break;
+                        }
                         Console.Read();
-                        break;
-                        default:
-                        Console.WriteLine();
-                        Console.WriteLine($"Sorry, die Eingabe: {ant} war falsch");
-                        Console.Read();
-                        break;
                     }
-                    Console.Read();
+                    else {
+                        Console.WriteLine("Bitte eine Zahl eingeben.");
+                        Console.Read();
+                    }
                 }
             }
         }
