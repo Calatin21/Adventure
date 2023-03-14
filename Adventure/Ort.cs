@@ -1,6 +1,4 @@
-﻿using System.Collections;
-
-namespace Adventure {
+﻿namespace Adventure {
     internal class Ort {
         String name;
         List<Pirat> piraten = new List<Pirat>();
