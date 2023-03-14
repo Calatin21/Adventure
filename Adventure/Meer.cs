@@ -1,6 +1,4 @@
-﻿
-
-namespace Adventure {
+﻿namespace Adventure {
     internal class Meer {
         String name;
         List<Insel> inseln = new List<Insel>();

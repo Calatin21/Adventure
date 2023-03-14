@@ -41,9 +41,11 @@
             }
             return rückgabe;
         }
-        public bool IsThereGegenstand() {
+        public bool IsThereGegenstand()
+        {
             bool ergebnis = false;
-            if (gegenstaende.Count() > 0) {
+            if (gegenstaende.Count() > 0)
+            {
                 ergebnis = true;
             }
             return ergebnis;

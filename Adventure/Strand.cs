@@ -17,10 +17,11 @@ namespace Adventure {
             p.SetOrt(i.GetStrand());
             if (streitigkeit) {
                 Console.WriteLine($"Auf dem Schiff gab es einen Streit unter den Piraten. Du bist über Bord gegangen.\nDen rest des weges zur Insel {i.GetName()} musst Du schwimmen.");
-            } else {
-                Console.WriteLine("Die Überfahrt war ruhig.");
+                Console.Read();
+            } else
+            {
+                Console.WriteLine("Die Überfahrt verläuft ruhig.");
             }
-            Console.Read();
         }
     }
 }

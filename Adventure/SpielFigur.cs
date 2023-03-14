@@ -1,6 +1,4 @@
-﻿using System.Collections;
-
-namespace Adventure {
+﻿namespace Adventure {
     internal class Spielfigur : Pirat {
         List<Gegenstand> tasche = new List<Gegenstand>();
         bool lebt = true;
@@ -25,6 +23,15 @@ namespace Adventure {
         }
         public bool GetLebt() {
             return lebt;
+        }
+        public bool IsTascheLeer()
+        {
+            bool ergebnis = false;
+            if (tasche.Count > 0)
+            {
+                ergebnis = true;
+            }
+            return ergebnis;
         }
     }
 }
