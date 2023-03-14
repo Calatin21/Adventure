@@ -27,18 +27,16 @@
             gegenstaende.Remove(g);
         }
         public void PrintGegenstaende() {
+            int x = 1;
             foreach (Gegenstand g in gegenstaende) {
-                Console.WriteLine(g.GetName());
-            }
+                Console.WriteLine($"{x}) {g.GetName()}");
+                x++;
+            }       
         }
-        public Gegenstand SearchGegenstand(String s) {
+        public Gegenstand GetGegenstand(int i) {
             Gegenstand rückgabe = null;
-            for (int i = 0; i < gegenstaende.Count; i++) {
-                if (gegenstaende[i].GetName() == s) {
-                    rückgabe = gegenstaende[i];
-                    break;
-                }
-            }
+            i = i - 1;
+            rückgabe = gegenstaende[i];
             return rückgabe;
         }
         public bool IsThereGegenstand()

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Adventure {
+﻿namespace Adventure {
     internal class Schiff {
         String name;
-        List<Pirat> piraten = new List<Pirat> ();
+        List<Pirat> piraten = new List<Pirat>();
         public void SetName(String s) {
             name = s;
         }
@@ -20,7 +14,7 @@ namespace Adventure {
         public void RemovePirat(Pirat p) {
             piraten.Remove(p);
         }
-        public List<Pirat> PrintPiraten () {
+        public List<Pirat> PrintPiraten() {
             return piraten;
         }
         public void SchiffFahrt(Insel i, Pirat p) {
@@ -35,11 +29,10 @@ namespace Adventure {
             p.SetInsel(i);
             p.SetOrt(i.GetStrand());
             if (streitigkeit) {
-                Console.WriteLine($"Auf dem Schiff gab es einen Streit unter den Piraten. Du bist über Bord gegangen.\nDen rest des weges zur Insel {i.GetName()} musstest Du schwimmen.");
-                Console.Read();
+                Console.WriteLine($"Auf dem Schiff: {this.GetName()} gab es einen Streit unter den Piraten. Du bist über Bord gegangen.\nDen rest des weges zur Insel {i.GetName()} musstest Du schwimmen.");
             }
             else {
-                Console.WriteLine("Die Überfahrt verläuft ruhig.");
+                Console.WriteLine($"Die Überfahrt der {this.GetName()} verläuft ruhig.");
             }
         }
     }

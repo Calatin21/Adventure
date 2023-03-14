@@ -16,18 +16,16 @@
             inseln.Remove(i);
         }
         public void PrintInsel() {
+            int x = 1;
             foreach (Insel i in inseln) {
-                Console.WriteLine(i.GetName());
+                Console.WriteLine($"{x}) {i.GetName()}");
+                x++;
             }
         }
-        public Insel SearchInsel(String s) {
+        public Insel GetInsel(int i) {
             Insel rückgabe = null;
-            for (int i = 0; i < inseln.Count; i++) {
-                if (inseln[i].GetName() == s) {
-                    rückgabe = inseln[i];
-                    break;
-                }
-            }
+            i = i - 1;
+            rückgabe = inseln[i];
             return rückgabe;
         }
         public void AddSchiff(Schiff s) {
