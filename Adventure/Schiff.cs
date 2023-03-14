@@ -28,11 +28,16 @@
             i.GetStrand().AddSchiff(this);
             p.SetInsel(i);
             p.SetOrt(i.GetStrand());
+            Console.WriteLine();
             if (streitigkeit) {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Auf dem Schiff: {this.GetName()} gab es einen Streit unter den Piraten. Du bist über Bord gegangen.\nDen rest des weges zur Insel {i.GetName()} musstest Du schwimmen.");
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
             else {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"Die Überfahrt der {this.GetName()} verläuft ruhig.");
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
         }
     }

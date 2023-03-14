@@ -88,14 +88,15 @@
                                     player.TakeGegenstand(g, player.GetOrt());
                                 }
                                 else {
-                                    Console.WriteLine("Hier gibt es keinen Gegenstand.");
+                                    Console.WriteLine("Bitte eine Zahl eingeben.");
+                                    Console.Read();
                                 }
-                                Console.Read();
                             }
                             else {
-                                Console.WriteLine("Bitte eine Zahl eingeben.");
-                                Console.Read();
+                                Console.WriteLine("Hier gibt es keinen Gegenstand.");
                             }
+                                Console.Read();
+                            
                             break;
                             case 3:
                             Console.WriteLine();
@@ -160,14 +161,15 @@
                                     player.TakeGegenstand(g, player.GetOrt());
                                 }
                                 else {
-                                    Console.WriteLine("Hier gibt es keinen Gegenstand.");
+                                    Console.WriteLine("Bitte eine Zahl eingeben.");
+                                    Console.Read();
                                 }
-                                Console.Read();
                             }
                             else {
-                                Console.WriteLine("Bitte eine Zahl eingeben.");
-                                Console.Read();
+                                Console.WriteLine("Hier gibt es keinen Gegenstand.");
                             }
+                            Console.Read();
+
                             break;
                             case 3:
                             Console.WriteLine();

@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 namespace Adventure {
     internal class Kneipe: Ort {
         public void Feiern(Pirat p) {
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine($"{p.GetName()} gibt sich ein Grog nach dem anderen und wacht am nächsten Morgen mit brummenden Schädel auf.");
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
-        
+
     }
 }
