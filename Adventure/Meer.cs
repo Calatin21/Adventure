@@ -22,10 +22,12 @@
                 x++;
             }
         }
-        public Insel GetInsel(int i) {
-            Insel rückgabe = null;
+        public Insel GetInsel(int i, Insel insel) {
+            Insel rückgabe = insel;
             i = i - 1;
-            rückgabe = inseln[i];
+            if (inseln[i] != null) {
+                rückgabe = inseln[i];
+            }
             return rückgabe;
         }
         public void AddSchiff(Schiff s) {

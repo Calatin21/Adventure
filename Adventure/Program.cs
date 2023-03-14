@@ -66,7 +66,7 @@
                 Console.WriteLine($"Sie befinden sich an dem Ort: {player.GetOrt().GetName()} auf der Insel: {player.GetInsel().GetName()}.");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine();
-                Console.WriteLine("Was möchten Sie tun?:\n1) Print Piraten vor Ort\n2) Gegenstände nehmen\n3) Ort wechseln\n4)Gegenstände in Deiner Tasche auflisten");
+                Console.WriteLine("Was möchten Sie tun?:\n1) Print Piraten vor Ort\n2) Gegenstände nehmen\n3) Ort wechseln\n4)Gegenstände in Deiner Tasche");
                 if (player.GetOrt().GetName() == "Kneipe") {
                     Console.WriteLine("5)Feiern");
                     ant = Console.ReadKey();
@@ -202,7 +202,7 @@
                             ant = Console.ReadKey();
                             if (Char.IsDigit(ant.KeyChar)) {
                                 x = int.Parse(ant.KeyChar.ToString());
-                                Insel y = karibik.GetInsel(x);
+                                Insel y = karibik.GetInsel(x, player.GetInsel());
                                 ((Strand)player.GetOrt()).GetSchiff().AddPirat(player);
                                 karibik.GetSchiff().SchiffFahrt(y, player);
                                 Console.Read();
